@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=h1, initial-scale">
+    <title>Document</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+</head>
+<body>
+    <h1>Skills as of <%= time %></h1>
+    <ul>
+        <% skills.forEach(function(s, idx) { %>
+            
+                <form action="/skills/<%= idx %>?_method=DELETE"
+                    class="delete-form" method="POST">
+                    <button id="deleteBtn" type="submit">X</button>
+                </form>
+                <a href="/skills/<%= idx %>"><%= s.skill %></a>
+                 - <%= s.learned ? 'Learned' : 'Not Learned' %>
+            
+        <% }); %>
+    </ul>
+    <a href="/skills/new">Add New Skill</a>
+</body>
+</html>
